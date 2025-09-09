@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Building branch ${env.BRANCH_NAME}"
+                echo "Building branch testing ${env.BRANCH_NAME}"
             }
         }
         stage('Test') {
