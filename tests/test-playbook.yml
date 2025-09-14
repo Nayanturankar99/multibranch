@@ -1,0 +1,18 @@
+---
+- name: Safe Test Playbook
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Ping test hosts
+      ansible.builtin.ping:
+
+    - name: Create a safe test file
+      ansible.builtin.file:
+        path: /tmp/ansible_test_file.txt
+        state: touch
+
+    - name: Write a safe test message
+      ansible.builtin.copy:
+        content: "This is a safe test from Ansible."
+        dest: /tmp/ansible_test_file.txt
