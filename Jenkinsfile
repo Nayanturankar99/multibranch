@@ -49,7 +49,7 @@ pipeline {
             echo "Build and tests completed successfully!"
         }
         failure {
-            echo "Something went wrong. Please check the logs!"
+            echo "Something went wrong. Please check the logs in details!"
         }
     }
 }
