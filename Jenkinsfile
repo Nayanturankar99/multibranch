@@ -46,7 +46,7 @@ pipeline {
             echo "This pipeline has finished, regardless of the result."
         }
         success {
-            echo "Build and tests completed successfully!"
+            echo "Build and tests completed successfully plz check!"
         }
         failure {
             echo "Something went wrong. Please check the logs in details!"
