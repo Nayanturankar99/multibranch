@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        APP_NAME = "TestApp"
+        APP_NAME = "TestApp for cicd"
     }
 
     stages {
