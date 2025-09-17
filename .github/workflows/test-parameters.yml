@@ -1,0 +1,37 @@
+name: Test Workflow with Parameters
+
+on:
+  push:
+    branches:
+      - main          # automatic run after PR merge
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Which environment to run this job on?'
+        required: true
+        default: 'uat'
+      run_type:
+        description: 'Type of run'
+        required: true
+        default: 'manual'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Print parameters
+        run: |
+          echo "Environment: ${{ github.event.inputs.environment }}"
+          echo "Run Type: ${{ github.event.inputs.run_type }}"
+
+      - name: Show branch
+        run: echo "Current branch is $GITHUB_REF"
+
+      - name: Test webhook (optional)
+        run: |
+          echo '{"msg":"Job completed"}' > output.json
+          cat output.json
