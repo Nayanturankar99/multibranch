@@ -1,0 +1,27 @@
+name: Test Workflow
+
+# Triggers
+on:
+  push:
+    branches:
+      - main          # runs automatically after PR merge
+  workflow_dispatch:   # allows manual trigger anytime
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Print message
+        run: echo "Hello! This workflow is running."
+
+      - name: Show branch
+        run: echo "Current branch is $GITHUB_REF"
+
+      - name: Test webhook (optional)
+        run: |
+          echo '{"msg":"Job completed"}' > output.json
+          cat output.json
