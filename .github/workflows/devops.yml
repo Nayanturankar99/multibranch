@@ -10,6 +10,7 @@ on:
     paths:
       - 'ansible/**'
       - 'jenkinsfiles/**'
+  workflow_dispatch:   # 👈 Manual trigger enabled
 
 jobs:
   devops-job:
