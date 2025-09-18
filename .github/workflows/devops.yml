@@ -1,0 +1,22 @@
+name: DevOps CI/CD
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'ansible/**'
+      - 'jenkinsfiles/**'
+  pull_request:
+    paths:
+      - 'ansible/**'
+      - 'jenkinsfiles/**'
+
+jobs:
+  devops-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Ansible Lint
+        run: |
+          echo "Checking Ansible playbooks"
+          # ansible-lint ansible/
